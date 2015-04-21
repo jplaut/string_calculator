@@ -30,4 +30,8 @@ describe StringCalculator do
   it "can calculate the sum of an unknown amount of numbers" do
     expect("3,5,6,4").to return_value(18)
   end
+
+  it "supports comma and newline delimiters" do
+    expect("2\n3,4").to return_value(9)
+  end
 end

@@ -9,7 +9,7 @@ module StringCalculator
     private
 
     def split_numbers(numbers)
-      numbers.split(",").map(&:to_i)
+      numbers.split(/[\n,]/).map(&:to_i)
     end
 
     def get_sum(numbers)
