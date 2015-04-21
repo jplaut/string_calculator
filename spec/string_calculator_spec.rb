@@ -26,4 +26,8 @@ describe StringCalculator do
   it "can calculate the sum of 2 numbers" do
     expect("2,3").to return_value(5)
   end
+
+  it "can calculate the sum of an unknown amount of numbers" do
+    expect("3,5,6,4").to return_value(18)
+  end
 end
