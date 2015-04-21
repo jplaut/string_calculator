@@ -34,4 +34,8 @@ describe StringCalculator do
   it "supports comma and newline delimiters" do
     expect("2\n3,4").to return_value(9)
   end
+
+  it "supports custom delimiters" do
+    expect("//;\n2;3;4").to return_value(9)
+  end
 end

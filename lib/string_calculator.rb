@@ -1,15 +1,24 @@
 module StringCalculator
   class << self
-    def add(numbers)
-      return 0 unless numbers.length > 0
+    def add(input)
+      return 0 unless input.length > 0
 
-      get_sum(split_numbers(numbers))
+      numbers = split_numbers(remove_delimiter_definition(input), delimiter(input))
+      get_sum(numbers)
     end
 
     private
 
-    def split_numbers(numbers)
-      numbers.split(/[\n,]/).map(&:to_i)
+    def delimiter(input)
+      input =~ /\/\/(.)/ ? $1 : /[\n,]/
+    end
+
+    def remove_delimiter_definition(input)
+      input =~ /(\/\/.\n)/ ? input.gsub($1, '') : input
+    end
+
+    def split_numbers(numbers, delimiter)
+      numbers.split(delimiter).map(&:to_i)
     end
 
     def get_sum(numbers)
