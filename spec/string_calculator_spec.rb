@@ -38,4 +38,18 @@ describe StringCalculator do
   it "supports custom delimiters" do
     expect("//;\n2;3;4").to return_value(9)
   end
+
+  describe "when input contains negative numbers" do
+    it "throws an error" do
+      expect {
+        StringCalculator.add("5,-2")
+      }.to raise_error
+    end
+
+    it "displays all negative values in error message" do
+      expect {
+        StringCalculator.add("-1,-3,-5")
+      }.to raise_error("negatives not allowed: -1, -3, -5")
+    end
+  end
 end
