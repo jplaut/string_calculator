@@ -27,6 +27,10 @@ describe StringCalculator do
     expect("2,3").to return_value(5)
   end
 
+  it "is able to add numbers with multiple digits" do
+    expect("20,30").to return_value(50)
+  end
+
   it "can calculate the sum of an unknown amount of numbers" do
     expect("3,5,6,4").to return_value(18)
   end
