@@ -3,7 +3,7 @@ module StringCalculator
     def add(input)
       return 0 unless input.length > 0
 
-      numbers = split_numbers(remove_delimiter_definition(input), delimiter(input))
+      numbers = split_numbers(extract_numbers(input), delimiter(input))
       get_sum(numbers)
     end
 
@@ -13,7 +13,7 @@ module StringCalculator
       input =~ /\/\/(.)/ ? $1 : /[\n,]/
     end
 
-    def remove_delimiter_definition(input)
+    def extract_numbers(input)
       input =~ /(\/\/.\n)/ ? input.gsub($1, '') : input
     end
 
